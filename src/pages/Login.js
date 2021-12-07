@@ -11,13 +11,14 @@ function Login(props) {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const { setAuthTokens } = useAuth();
-  const referer = props.location.state.referer || '/';
+  const referer = '/';
 
   function postLogin() {
-    axios.post("https://www.somePlace.com/auth/login", {
-      userName,
-      password
+    axios.post("http://localhost:3001/login", {
+      "email": userName,
+      "password": password
     }).then(result => {
+      console.log(result);
       if (result.status === 200) {
         setAuthTokens(result.data);
         setLoggedIn(true);

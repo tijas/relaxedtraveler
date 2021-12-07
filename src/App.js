@@ -36,5 +36,6 @@ function App(props) {
     </AuthContext.Provider>
   );
 }
+/*<PrivateRoute path="/admin" component=<Private><Admin/></Private> />*/
 
 export default App;

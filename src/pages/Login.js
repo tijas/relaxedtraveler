@@ -11,7 +11,7 @@ function Login(props) {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const { setAuthTokens } = useAuth();
-  const referer = '/';
+  const referer = '/user';
 
   function postLogin() {
     axios.post("http://localhost:3001/login", {

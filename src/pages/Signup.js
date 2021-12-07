@@ -8,7 +8,7 @@ function Signup(props) {
   const [isError, setIsError] = useState(false);
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const referer = '/';
+  const referer = '/user';
 
   function postSignup() {
     axios.post("http://localhost:3001/register", {

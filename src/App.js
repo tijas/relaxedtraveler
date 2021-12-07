@@ -1,11 +1,15 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import PrivateRoute from './PrivateRoute';
 import Home from "./pages/Home";
 import Admin from "./pages/Admin";
+import User from "./pages/User";
 import { AuthContext } from "./context/auth";
 import Login from "./pages/Login";
 import Signup from './pages/Signup';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import './App.css'
 
 function App(props) {
   const [authTokens, setAuthTokens] = useState();
@@ -18,19 +22,16 @@ function App(props) {
   return (
     <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
       <Router>
-        <div>
-        <ul>
-          <li>
-            <Link to="/">Home Page</Link>
-          </li>
-          <li>
-            <Link to="/admin">Admin Page</Link>
-          </li>
-        </ul>
+        <div className="d-flex flex-column vh-100">
+          <Header />
+          <div className="d-flex flex-row justify-content-center">
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <PrivateRoute path="/admin" component={Admin} />
+          <PrivateRoute path="/user" component={User} />
+          </div>
+          <Footer/>
         </div>
       </Router>
     </AuthContext.Provider>

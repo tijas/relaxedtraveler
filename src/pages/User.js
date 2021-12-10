@@ -1,6 +1,6 @@
 import React from "react";
 
-function User(props) {
+function User() {
   return (
     <div className="box bg-primary">
       <h2 className="text-center">User specific page</h2>

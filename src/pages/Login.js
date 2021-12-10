@@ -19,9 +19,7 @@ function Login() {
       "email": eMail,
       "password": password
     }).then(result => {
-      console.log(result);
       if (result.status === 200) {
-        console.log(result.data);
         setAuthTokens(result.data.accessToken);
         setLoggedIn(true);
       } else {

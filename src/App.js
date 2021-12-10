@@ -21,7 +21,7 @@ function App(props) {
 
   return (
     <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
-      <Router>
+      <Router basename="/coolsite">
 
         <div className="d-flex flex-column vh-100">
           <Header />

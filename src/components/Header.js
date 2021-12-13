@@ -6,10 +6,10 @@ import'./Header.css'
 
 function Header(){
     return (
-        <Navbar className="m-2 reversed" expand={false}>
+        <Navbar className="main-nav m-2" expand={false}>
         <Container fluid className="justify-content-end">
             <Navbar.Toggle className="shadow fixed-top nav-button" aria-controls="offcanvasNavbar" />
-            <Navbar.Brand as={Link} to="/" className="fs-2">Ready made Authentication</Navbar.Brand>
+            <Navbar.Brand as={Link} to="/" className="fs-2">Relaxed Traveler</Navbar.Brand>
             <Navbar.Offcanvas
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"
@@ -17,12 +17,12 @@ function Header(){
             className="bg-primary"
             >
             <Offcanvas.Header closeButton>
-                <Offcanvas.Title id="offcanvasNavbarLabel">Navigation</Offcanvas.Title>
+                <Offcanvas.Title id="offcanvasNavbarLabel">Journey Planner</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                 <LinkContainer to="/">
-                    <Nav.Link>Home Page</Nav.Link>
+                    <Nav.Link>Front Page</Nav.Link>
                 </LinkContainer>
                 <Nav.Link as={Link} to="/user">User Page</Nav.Link>
                 <Nav.Link as={Link} to="/admin">Admin Page</Nav.Link>

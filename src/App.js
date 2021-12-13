@@ -11,17 +11,19 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import './App.css'
 
-function App(props) {
-  const [authTokens, setAuthTokens] = useState();
-  
+function App() {
+  const [authTokens, setAuthTokens] = useState(sessionStorage.getItem('tokens'));
+
+
   const setTokens = (data) => {
-    localStorage.setItem("tokens", JSON.stringify(data));
+    if (data) sessionStorage.setItem("tokens", JSON.stringify(data));
+    else sessionStorage.removeItem("tokens");
     setAuthTokens(data);
   }
 
   return (
     <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
-      <Router basename="/coolsite">
+      <Router>
 
         <div className="d-flex flex-column vh-100">
           <Header />

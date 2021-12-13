@@ -10,7 +10,6 @@ function Login() {
   const [eMail, setEMail] = useState("");
   const [password, setPassword] = useState("");
   const { setAuthTokens } = useAuth();
-  console.log("login uslocaton", useLocation());
   const { state } = useLocation()
   const referer = (state) ? state.pathname : '/';
 
@@ -20,6 +19,7 @@ function Login() {
       "password": password
     }).then(result => {
       if (result.status === 200) {
+        console.log(result.data);
         setAuthTokens(result.data.accessToken);
         setLoggedIn(true);
       } else {

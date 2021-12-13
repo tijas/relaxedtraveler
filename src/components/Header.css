@@ -3,3 +3,8 @@
     top: 35px;
     left: 1vw;
 }
+
+.main-nav{
+    z-index: 5;
+    position: sticky;
+}

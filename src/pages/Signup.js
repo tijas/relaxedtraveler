@@ -5,7 +5,7 @@ import {Form, Button, FloatingLabel} from 'react-bootstrap';
 import { useForm, Controller } from "react-hook-form";
 
 function Signup() {
-  const { handleSubmit, control, formState: {errors}, getValues } = useForm()
+  const { handleSubmit, control, formState: {errors}, getValues, register } = useForm()
   const [isError, setIsError] = useState(false);
   const [signedUp, setSignedUp] = useState(false);
   const [error, setErrors] = useState("");
@@ -66,15 +66,11 @@ function Signup() {
         {errors.username && <p>{errors.username.message}</p>} 
         </Form.Text>
         <FloatingLabel controlId="username" label="Enter username" className="mb-3">
-          <Controller control={control}
-            name="username" 
-              rules={{ required: "This field is required", minLength: {value:3, message: "Username too short, 3 characters required" }}}                                           
-              defaultValue=""                                                                        
-              render={({ field: { onChange, value, ref } }) => (                             
-                <Form.Control onChange={onChange} value={value} ref={ref}
+          <Form.Control
+                {...register("username", { required: "Username is required", minLength: {value:3, message: "Username must be 3 char long!"}})}
                 type="text"                            
                 isInvalid={errors.username}                                                          
-                placeholder="Enter user name" />)} />
+                placeholder="Enter user name" />
           </FloatingLabel>
         </Form.Group>
 
@@ -129,5 +125,5 @@ function Signup() {
     </div>
   );
 }
-/**/
+
 export default Signup;

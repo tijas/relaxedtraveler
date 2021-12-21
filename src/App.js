@@ -14,7 +14,6 @@ import './App.css'
 function App() {
   const [authTokens, setAuthTokens] = useState(sessionStorage.getItem('tokens'));
 
-
   const setTokens = (data) => {
     if (data) sessionStorage.setItem("tokens", JSON.stringify(data));
     else sessionStorage.removeItem("tokens");

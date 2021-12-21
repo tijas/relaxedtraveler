@@ -42,12 +42,6 @@ const Plan = ({weather}) => {
 const Home = () => {
   const [weather, setWeather]= useState()
   const [icons, setIcons]= useState()
-  /*
-  const [url, setUrl] = useState("https://api.openweathermap.org/data/2.5/weather?lat=60.16952&lon=24.93545&appid=6d59e8ce5cbb6a7c556e372ce365fdd1")
-  const REACT_APP_ICON_URL = 'https://openweathermap.org/img/w'
-  */
-  const url = "https://api.openweathermap.org/data/2.5/weather?lat=60.16952&lon=24.93545&appid=6d59e8ce5cbb6a7c556e372ce365fdd1"
-  const iconUrl = "https://openweathermap.org/img/w"
 
   useEffect(() => {
     axios.get(url)

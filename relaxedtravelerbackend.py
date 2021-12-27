@@ -1,6 +1,6 @@
 import os
 from flask import current_app,jsonify,request
-from app import create_app, db, ma, cors, mail
+from app import create_app, db, ma, cors
 from models import User, Journey
 #from email import send_email
 # Create an application instance

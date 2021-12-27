@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from flask_cors import CORS
 
-from flask_mail import Mail
+#from flask_mail import Mail
 from config import config
 
 # Create various application instances
@@ -12,7 +12,7 @@ from config import config
 db = SQLAlchemy()
 ma = Marshmallow()
 cors = CORS()
-mail = Mail()
+#mail = Mail()
 
 def create_app(config_name):
     """Application-factory pattern"""
@@ -26,7 +26,7 @@ def create_app(config_name):
     db.init_app(app)
     ma.init_app(app)
     cors.init_app(app)
-    mail.init_app(app)
+    #mail.init_app(app)
     
     if app.config['SSL_REDIRECT']:
         from flask_sslify import SSLify

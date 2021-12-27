@@ -1,2 +1,2 @@
-FLASK_APP = "relaxedtravelerbackend.py"
+FLASK_APP = "relaxedtravelerbackend"
 FLASK_DEBUG = 1

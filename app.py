@@ -28,4 +28,9 @@ def create_app(config_name):
     cors.init_app(app)
     mail.init_app(app)
     
+    if app.config['SSL_REDIRECT']:
+        from flask_sslify import SSLify
+        sslify = SSLify(app)
+
+
     return app

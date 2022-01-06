@@ -12,6 +12,7 @@ const Destination = ({city, setCity, date, setDate}) =>{
     }
   },[])
   
+  /*Need to redeploy to get process.env. working*/
   const citySearch = (e) => {
     const cityUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}`
     axios.get(cityUrl)

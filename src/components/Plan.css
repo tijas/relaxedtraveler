@@ -89,6 +89,7 @@
 
 @media only screen and (min-width: 576px) {
   .main-task{
+    border-bottom: 0px solid #e83283;
     border-right: 2px solid #e83283;
   }
 }

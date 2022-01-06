@@ -15,7 +15,6 @@
         height: 70vh !important;
         object-fit: cover !important;
     }
-    
 }
 
 @media screen and (max-height:500px) {
@@ -27,31 +26,4 @@
         object-fit: cover !important;
     }
     
-}
-
-#paper {
-    width: 80vw;
-    height: 700px;
-    margin: 20px auto;
-    background-color: white;
-    box-shadow: 0px 0px 5px 0px #888;
-    position: relative;
-  }
-
-#paper::before {
-    content: '';
-    width: 2px;
-    height: 100%;
-    background-color: rgba(255,0,0,0.6);
-    position: absolute;
-    top: 0;
-    right: 20vw;
-}
-#pattern {
-    height: 100%;
-    background-image: repeating-linear-gradient(white 0px, white 24px, teal 25px);
-  }
-
-.note-line {
-    margin-bottom: 0px
 }

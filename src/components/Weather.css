@@ -1,0 +1,8 @@
+.weatherWidget{
+    position: relative;
+    margin-top: 10px;
+    padding: 5px;
+    width: 95%;
+    background-color:#3a8fd96e;
+    border-radius: 5px;
+}

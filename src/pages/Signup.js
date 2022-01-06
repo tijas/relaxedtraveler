@@ -12,7 +12,7 @@ function Signup() {
   
   const postSignup = (data) => {
     console.log(data);
-      axios.post("http://localhost:3001/register", {
+      axios.post("https://relaxedtravelerbackend.herokuapp.com/register", {
         "email": data.email,
         "password": data.password,
         "username": data.username,
@@ -26,7 +26,7 @@ function Signup() {
         console.log(e.response);
         setIsError(true);
         if(e.response){
-          setErrors(e.response.data)
+          setErrors(e.response.statusText)
         }else{
           setErrors("Database unavailable, try again later!")
         }

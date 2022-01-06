@@ -1,58 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Carousel } from 'react-bootstrap';
 import './Home.css'
-import axios from 'axios';
+import Weather from "../components/Weather";
+import Plan from "../components/Plan";
 
-
-const Weather = ({weather}) =>{
-  const iconUrl = "https://openweathermap.org/img/wn/"
-  const iconUrlEnd = "@2x.png"
-  if(weather){
-    const iconFinalUrl = iconUrl+weather.weather[0].icon+iconUrlEnd
-    console.log(iconFinalUrl);
-  return (
-    <div>
-    <h5 className="note-line">Location: {weather.name}</h5>
-    <br></br>
-    <p className="note-line"></p>
-    <p className="note-line">Weather: {weather.weather.map(x => <span key={x.main}>{x.main}, </span>)} <img src={iconFinalUrl} alt="WeatherIcon"></img> </p>
-    
-    <br></br>
-    <p className="note-line">Temperature: {parseInt(-273.15+weather.main.temp)} °C</p>
-    </div>
-  )
-  }else{
-    return(<p>Weather Tobe</p>)
-  }
-}
-
-const Plan = ({weather}) => {
-
-  if(weather){
-    return (
-      <div>
-      <p className="note-line text-end">Start location: {weather.name}</p>
-      </div>
-    )
-    }else{
-      return(<p>Cool plan</p>)
-    }  
-}
 
 const Home = () => {
-  const [weather, setWeather]= useState()
-  const [icons, setIcons]= useState()
-
-  useEffect(() => {
-    axios.get(url)
-    .then(result => {
-      console.log(result.data);
-      setWeather(result.data)
-    }).catch(e => {
-      console.log(e);
-    })
-  }, [])
-
+  const [city, setCity] = useState({name:"Helsinki", coord:"lat=60.16952&lon=24.93545"});
+  
+  let dateNow = new Date().toISOString();
+  const [date, setDate] = useState(dateNow.slice(0,10));
+  const [days, setDays] = useState(
+    [["0", ["Arrive to Airport 8:00", "Taxi to hotel","Lunch nextdoor 12:00","Meet friend","Supper","Sleep"], ["Airport","Helsinki-Vantaa airport. Gotta take taxi outside"], ["Hotel","Original Sokos Hotel Presidentti, Eteläinen Rautatiekatu 4, 00100 Helsinki, https://www.sokoshotels.fi/fi/helsinki/sokos-hotel-presidentti"], ["Restaurants","https://www.myhelsinki.fi/en/eat-and-drink/restaurants/the-10-best-restaurants-in-finland, Best ten in helsinki"]],
+    ["1", ["Hotel breakfast","Look for new friend","Go to park","Movies","Flight to home at 23:00"], ["Movie palace","https://www.finnkino.fi/teatterit/maxim"]]]);
 
   return (
     <div className="w-100 home-main">
@@ -99,15 +59,8 @@ const Home = () => {
         <h1 className="text-center">Step into easier travel planning</h1>
         <div className="text-center">With our help you can plan holiday easily in advance and follow the plan carefree while on the road! <span className="fw-light fst-italic">internet required</span></div>
       </div>
-      <div id="paper">
-        <div id="pattern" className="row">
-          <div id="content-left" className="col-9 text-primary">
-            <Plan weather={weather}/>
-          </div>
-          <div id="content-right" className="col-3 text-primary">
-            <Weather weather={weather}/>
-          </div>
-        </div>
+      <div id="content">
+      <Plan city={city} setCity={setCity} date={date} setDate={setDate} days={days} setDays={setDays}/>
       </div>
     </div>
   )

@@ -194,6 +194,13 @@ const Plan = ({city, setCity, date, setDate, days, setDays}) => {
         {days.map( (x, index) =>
           <Row key={index+"dayrow"} className="day border-top border-primary border-2">
 
+            <Col sm={3} className="main-task">
+              <div key={index} className="main-note text-center mt-1" onClick={() => mainNoteChanger(x[0], new Date(datum+(86400000*index)).toLocaleDateString(), x[1])}>
+                {date?<h5 key={index+"p"} className="mb-1">{new Date(datum+(86400000*index)).toLocaleDateString()}</h5>:<h5>Select date</h5>}
+                {x[1].map((line, index)=> <p key={index+"line"} className="mb-1">{line}</p>)}
+              </div>
+            </Col>
+
             <Col sm={9} className="d-flex flex-row flex-wrap">
               {x.map((z, index, array) => index!==0&&index!==1?
               <div key={index} className="note text-center m-1 p-1" onClick={() => noteChanger(array[0], index, z[0], z[1])}>
@@ -206,12 +213,6 @@ const Plan = ({city, setCity, date, setDate, days, setDays}) => {
               </div>
             </Col>
 
-            <Col sm={3} className="border-start border-primary border-2 main-task">
-              <div key={index} className="main-note text-center mt-1" onClick={() => mainNoteChanger(x[0], new Date(datum+(86400000*index)).toLocaleDateString(), x[1])}>
-                {date?<h5 key={index+"p"} className="mb-1">{new Date(datum+(86400000*index)).toLocaleDateString()}</h5>:<h5>Select date</h5>}
-                {x[1].map((line, index)=> <p key={index+"line"} className="mb-1">{line}</p>)}
-              </div>
-            </Col>
           </Row>
         )}
           <Row className="d-flex justify-content-between mt-1">

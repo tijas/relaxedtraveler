@@ -17,6 +17,7 @@ function App() {
   const setTokens = (data) => {
     if (data) sessionStorage.setItem("tokens", JSON.stringify(data));
     else sessionStorage.removeItem("tokens");
+    console.log(data);
     setAuthTokens(data);
   }
 

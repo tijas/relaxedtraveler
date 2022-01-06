@@ -9,7 +9,7 @@
 }
 
 .note{
-  max-width: 60%;
+  max-width: 400px;
   border-radius: 2px;
   box-shadow: 2px 3px 7px #8888883b;
   background-color: var(--note)!important;
@@ -81,4 +81,14 @@
 }
 .pop-in{
   display: none;
+}
+
+.main-task{
+  border-bottom: 2px solid #e83283;
+}
+
+@media only screen and (min-width: 576px) {
+  .main-task{
+    border-right: 2px solid #e83283;
+  }
 }
